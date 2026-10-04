@@ -14,9 +14,9 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| Guess 50 when secret is 31 | Game should say "Go LOWER!" because 50 is greater than 31. | Game says "Go HIGHER!" | No error |
+| Click New Game after making a guess | New game should generate a new secret and clear attempts, history, and previous input. | New secret is generated and attempts reset, but the previous guess remains in History and in the input field. | No error |
+| Enter a guess and click Submit Guess once | Attempts should increase, attempts left should decrease, and the guess should immediately appear in History. | Feedback appears immediately, but Attempts, Attempts Left, and History remain one interaction behind and update only after another interaction. | No error |
 
 ---
 
