@@ -25,28 +25,28 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [x] **Game purpose:** The game asks the player to guess a randomly generated secret number within a limited number of attempts. It provides Higher/Lower hints after each guess.
+
+- [x] **Bugs found:** I found three reproducible bugs: the Higher/Lower hints were reversed, New Game did not completely clear the previous game state, and the displayed Attempts/History information updated one interaction late.
+
+- [x] **Fixes applied:** I corrected the reversed Higher/Lower messages and fixed New Game so it resets the attempts, history, input, score, status, and secret number. I documented the delayed display bug but did not fix it as part of the required project.
 
 ## 📸 Demo Walkthrough
 
-Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Start the Streamlit app and select a difficulty level. The sidebar displays the number range and allowed attempts.
+2. Enter a number and click **Submit Guess**.
+3. The game compares the guess with the secret number and displays the appropriate **Go HIGHER!** or **Go LOWER!** hint.
+4. Continue guessing until the secret number is found or the allowed attempts are exhausted.
+5. Click **New Game** to generate a new secret number and reset the attempts, history, input, score, and game status.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
 ```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
+python -m pytest
+========================= 3 passed in 0.04s =========================
 ```
 
 ## 🚀 Stretch Features
