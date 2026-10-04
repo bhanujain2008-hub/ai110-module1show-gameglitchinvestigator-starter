@@ -63,6 +63,14 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
         return current_score - 5
 
     return current_score
+def start_new_game(difficulty):
+    st.session_state.attempts = 0
+    st.session_state.secret = random.randint(1, 100)
+    st.session_state.history = []
+    st.session_state.status = "playing"
+    st.session_state.score = 0
+    st.session_state[f"guess_input_{difficulty}"] = ""
+
 
 st.set_page_config(page_title="Glitchy Guesser", page_icon="🎮")
 
@@ -127,15 +135,15 @@ col1, col2, col3 = st.columns(3)
 with col1:
     submit = st.button("Submit Guess 🚀")
 with col2:
-    new_game = st.button("New Game 🔁")
+    new_game = st.button(
+        "New Game 🔁",
+        on_click=start_new_game,
+        args=(difficulty,)
+    )
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
-if new_game:
-    st.session_state.attempts = 0
-    st.session_state.secret = random.randint(1, 100)
-    st.success("New game started.")
-    st.rerun()
+
 
 if st.session_state.status != "playing":
     if st.session_state.status == "won":
